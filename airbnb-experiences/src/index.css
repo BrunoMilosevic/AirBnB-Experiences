@@ -28,9 +28,6 @@ section {
   align-self: center;
 }
 
-main {
-  margin: 22px 30px;
-}
 .titles {
   max-width: 347px;
   margin-bottom: 49px;
@@ -48,18 +45,21 @@ main {
   font-size: 16px;
   font-weight: 400;
 }
-.event-cards {
+.cards-list {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-wrap: nowrap;
   gap: 20px;
+  overflow-x: auto;
 }
-.card-1,
-.card-2,
-.card-3 {
-  width: 176px;
-  height: 235px;
+.event-cards {
+  position: relative;
+  width: 175px;
+  font-size: 12px;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
 }
+
 .card--star {
   height: 14px;
 }
@@ -72,4 +72,15 @@ main {
 .card-description {
   display: flex;
   align-items: center;
+}
+.soldout {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  max-width: 70px;
+  max-height: 20px;
+  padding: 5px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: white;
 }

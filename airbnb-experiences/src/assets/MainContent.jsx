@@ -1,28 +1,35 @@
 import React from "react";
 import star from "./star.png"
-import swimmer from "./swimmer.png"
-function MainContent(){
+
+
+function MainContent(props){
+    let badgeText;
+    if(props.openSpots === 0){
+        badgeText = "SOLD OUT"
+    } else if(props.location === "Online"){
+        badgeText = "ONLINE"
+    } 
     return (
-        <main>
+        
             
-            <div className="event-cards">
-                <div className="card-1">
-                    <img src={swimmer} alt="swimmer" className="event-host" />
+                <div className="event-cards">
+                   {badgeText && <div className="soldout">
+                        {badgeText}
+                    </div>}
+                    <img src={`./src/assets/${props.coverImg}`} alt="" className="event-host" />
                     <div className="card-description">
                         <img src={star} alt="Star rating" className="card--star" />
-                        <span>5.0</span>
-                        <span className="gray">(6) &#183; </span>
-                        <span className="gray">USA</span>
+                        <span>{props.stats.rating}</span>
+                        <span className="gray">({props.stats.reviewCount}) &#183; </span>
+                        <span className="gray">{props.location}</span>
                         
                     </div>
-                    <p className="what-and-who">Life lessons with Katie Zaferes</p>
-                        <p className="price"><span className="bold--paragraph">From $136</span>/ person</p>
+                    <p className="what-and-who">{props.title}</p>
+                        <p className="price"><span className="bold--paragraph">From {props.price}</span>/ person</p>
                 </div>
-                <div className="card-2"></div>
-                <div className="card-3"></div>
-            </div>
             
-        </main>
+            
+        
     )
 }
 
